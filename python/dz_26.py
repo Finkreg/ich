@@ -8,11 +8,11 @@ arguments = sys.argv
 fpath = arguments[1]
 
 def run_python_file(filepath):
-    if os.path.isfile(filepath):
+    if  not filepath.endswith('.py'):
+        print("This is not a python file")
+    elif os.path.isfile(filepath):
         print(f"Success, file {arguments[1]} loaded")
         exec(open(filepath).read())
-    elif not filepath.endswith('.py'):
-        print("This is no a python file")
     elif not os.path.isfile(filepath):
         print("Failure, file not found")
 
