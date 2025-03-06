@@ -58,7 +58,7 @@ Result: {
   filter: {
     age: {
       $gte: 20,
-      $lte: 30
+      $lt: 30
     }
   },
   project: {
