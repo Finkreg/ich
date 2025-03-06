@@ -42,27 +42,22 @@ sudo find / -type f -size +100M | xargs sudo du -h
 Решение этого вопроса было быстро найдено, и состояло в том, чтобы создать небольшой скрипт, который будет создавать архив логов, очищать оригинальный файл логов, удалять старые архивы, перезапускать Apache, и это всё будет выполняться каждую минуту, поскольку именно таким образом мы настроили кронтаб 
 (указав * * * * * и прописав путь к нашему скрипту). 
 
-#!/bin/bash
 
-# 1. create arch
+----------СКРИПТ----------
+
+#!/bin/bash
 
 DATE=$(date "+%Y%m%d-%M")
 
 tar -czvf /home/ec2-user/access_log_archives/"$DATE"_access_log.tar.gz /var/log/httpd/access_log
 
-# 2. recreate access_log
-
 echo "" > /var/log/httpd/access_log
-
-# 3. check all arch and if remove old
 
 find /home/ec2-user/access_log_archives/ -name "*.tar.gz" -mmin +3 | xargs rm
 
-# 4. restart apache
-
 systemctl restart httpd.service
 
-# 5. add it cron
+-------------------------
 
 Конечно все это применимо к учебному проекту. В реальной жизни для сохранения ресурсов сервера мы не будем создавать архивы и чистить логи ежеминутно. В таком случае уместнее будет настроить скрипт и кронтаб на активацию еженедельно или ежемесячно. В отдельных случаях - ежедневно. 
 
