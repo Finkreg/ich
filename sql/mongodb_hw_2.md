@@ -1,0 +1,36 @@
+#    Коллекция imdb : Используя оператор $size , найдите фильмы, написанные 3 сценаристами (writers) и снятые 2 режиссерами (directors)
+
+db.imdb.find({$and: [{writers:{$size: 3}}, {directors:{$size:2}}]})
+# при выполнении запроса на countDocuments результат: 483 документа
+
+#    Коллекция bookings: Найдите адрес нахождения автомобиля с vin WME4530421Y135045 по самой последней дате (и времени) final_date
+
+db.bookings.find({vin:"WME4530421Y135045"}, 
+{final_address:1, final_date:1, _id:0}).sort({final_date:-1}).limit(1)
+
+result:   final_address: 'Piazza Guido Cavalcanti, 8, 10132 Torino TO',
+          final_date: 2017-10-01T19:20:05.000Z
+
+#    Коллекция bookings: подсчитайте, у скольких автомобилей при окончании аренды закончилось топливо (final_fuel)
+
+db.bookings.countDocuments({final_fuel:0})
+
+result:   30
+
+#    Коллекция bookings: найдите номерной знак и vin номер авто, с самым большим километражом (distance)
+
+db.bookings.find({},{plate:1, vin:1, _id:0, distance:1}).sort({distance:-1}).limit(1)
+
+result:     plate: '020/FF778KW',
+            vin: 'WME4533421K148812',
+            distance: 19283
+
+
+#    Коллекция imdb. Найдите фильм с участием "Brad Pitt" с самым высоким рейтингом (imdb.rating)
+
+db.imdb.find({cast:"Brad Pitt", "imdb.rating":{$ne: ''}}, {title:1, "imdb.rating":1, _id:0}).sort({"imdb.rating":-1}).limit(1)
+
+result:
+            title: 'Fight Club',
+            imdb: {
+            rating: 8.9
