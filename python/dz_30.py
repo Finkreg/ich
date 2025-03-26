@@ -43,19 +43,17 @@ class BankAccount:
 
 
     def deposit(self, dep_ammount):
-        self.dep_ammount = dep_ammount
-        print(f"peeep.....peeeep....  {self.dep_ammount}$ have been added to your account")
-        self.balance += self.dep_ammount
+        print(f"peeep.....peeeep....  {dep_ammount}$ have been added to your account")
+        self.balance += dep_ammount
         self.check_balance()
 
 
     def withdraw(self, withdraw_ammount):
-        self.withdraw_ammount = withdraw_ammount
-        if self.balance - self.withdraw_ammount < 0:
+        if self.balance - withdraw_ammount < 0:
             print("Insufficient Funds")
             raise ValueError("Withdrawal amount exceeds available balance.")
-        self.balance -= self.withdraw_ammount
-        print(f"peeeep....peeeep... {self.withdraw_ammount}$ have been withdrawn from your account")
+        self.balance -= withdraw_ammount
+        print(f"peeeep....peeeep... {withdraw_ammount}$ have been withdrawn from your account")
         self.check_balance()
         
     
@@ -89,9 +87,8 @@ class BankAccount:
 
 
     def deposit(self, dep_ammount):
-        self.dep_ammount = dep_ammount
-        print(f"peeep.....peeeep....  {self.dep_ammount}$ have been added to your account")
-        self.balance += self.dep_ammount
+        print(f"peeep.....peeeep....  {dep_ammount}$ have been added to your account")
+        self.balance += dep_ammount
         self.check_balance()
 
 
