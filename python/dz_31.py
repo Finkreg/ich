@@ -17,16 +17,14 @@
 
 from functools import wraps
 
-def validate_args(initial_name, initial_age):
+def validate_args(*expected_types):
     def decorator(func):
         @wraps(func)
-        def wrapper(name, age):
-            if isinstance(name, initial_name) and isinstance(age, initial_age):
-                return func(name, age)
-            elif not isinstance(name, initial_name):
-                raise TypeError(f"TypeError: Argument {name} has wrong type {type(name)}. {initial_name} expected")
-            elif not isinstance(age, initial_age):
-                raise TypeError(f"TypeError: Argument {age} has wrong type {type(age)}. {initial_age} expected")
+        def wrapper(*args, **kwargs):
+            for arg, expected_type in zip(args, expected_types ):
+                if not isinstance(arg, expected_type):
+                    raise TypeError(f"TypeError: Argument {arg} has wrong type {type(arg)}. {expected_type} expected")
+            return func(*args, **kwargs)
         return wrapper
     return decorator
 
