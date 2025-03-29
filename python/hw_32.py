@@ -23,7 +23,7 @@ class Counter:
 
     def __isub__(self, other):
         self.initial_value -= other
-        return self.initial_value
+        return self
 
     def __str__(self):
         return str(self.initial_value)
