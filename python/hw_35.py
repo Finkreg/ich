@@ -14,22 +14,22 @@
 
 import requests
 
-# def get_response(link):
-#     try:
-#         response = requests.get(link)
-#         return response
-#     except requests.exceptions.RequestException as e:
-#         print(f"There was an ERROR: {e}")
+def get_response(link):
+    try:
+        response = requests.get(link)
+        return response
+    except requests.exceptions.RequestException as e:
+        print(f"There was an ERROR: {e}")
 
 
-# # url = "https://api.example.com"
-# url = "https://httpbin.org/"
-# response = get_response(url)
+# url = "https://api.example.com"
+url = "https://httpbin.org/"
+response = get_response(url)
 
-# if response:
-#     print("Status Code:", response.status_code)
-#     print("Response Text:", response.text)
-#     print("Response Headers:", response.headers)
+if response:
+    print("Status Code:", response.status_code)
+    print("Response Text:", response.text)
+    print("Response Headers:", response.headers)
 
 
 
