@@ -1,0 +1,87 @@
+Write a code snippet in Bash, which asks for a folder name. 
+Then it takes the contents of the folder and renames all the files 
+inside by prepending the name draft to the file name.
+
+Промпт для Bash-скрипта (Переименование файлов)
+
+    Общая цель: Создать простой Bash-скрипт, который автоматизирует переименование
+    файлов внутри указанной папки.
+    Детали: Скрипт должен запросить у пользователя имя папки. Затем он должен пройтись 
+    по всем файлам в этой папке (исключая скрытые директории, которые начинаются с точки) 
+    и переименовать каждый файл, добавляя префикс "draft" к его исходному имени.
+    Ключевые элементы: Взаимодействие с пользователем (запрос ввода), обход содержимого 
+    директории, операция переименования файлов (команда mv или rename), использование 
+    циклов в Bash, обработка строк (добавление префикса).
+
+
+
+
+Create a file named "app-tree.md" in the root directory to outline 
+the app's folder and file structure. Exclude any directories that start 
+with a dot, such as .git, .history, .gitignore, and node_modules. Review 
+all files to understand their structure and functions. If the user requests, 
+add specific files or folders to the knowledge base. While reviewing, 
+identify any errors, typos, or duplicate code, and notify the user with a 
+suggestion to fix them. Propose optimizations and speed enhancements for each 
+file. Initially, offer the user the option to add comments to each code file 
+explaining its purpose. Once all files have been reviewed, inform the user.
+
+Промпт для создания файловой структуры (app-tree.md)
+
+    Общая цель: Создать файл app-tree.md, который будет описывать структуру папок и 
+    файлов проекта, а также служить инструментом для обзора и оптимизации кода.
+    Детали:
+        Создать файл app-tree.md в корневой директории.
+        В файле app-tree.md должно быть схематично представлено дерево папок и файлов 
+        проекта.
+        При этом должны быть исключены специфические системные или служебные директории 
+        (например, .git, .history, .gitignore, node_modules).
+        Инструмент или процесс, выполняющий этот промпт, должен просмотреть все остальные 
+        файлы в проекте, чтобы понять их структуру и функции.
+        Предоставляется возможность добавлять конкретные файлы/папки в базу знаний 
+        (для будущего анализа).
+        В ходе обзора кода должна быть реализована функция для идентификации и уведомления 
+        пользователя об ошибках, опечатках, дублировании кода, а также предложения по их 
+        исправлению.
+        Должны быть предложены оптимизации и улучшения производительности для каждого файла.
+        Изначально пользователю должна быть предложена опция добавления комментариев к 
+        каждому файлу кода, объясняющих его назначение.
+        После завершения обзора всех файлов пользователь должен быть проинформирован.
+    Ключевые элементы: Документирование структуры проекта, анализ кода (поиск ошибок, 
+    дубликатов, оптимизация), интерактивность (добавление комментариев по запросу), 
+    уведомление о завершении процесса. Этот промпт подразумевает более сложную систему, 
+    возможно, скрипт или специализированный инструмент, который может анализировать код.
+
+
+
+
+You are an image-generation model tasked with creating a cute image for a blog. 
+Your goal is to generate a high-quality, visually appealing image that aligns 
+with the blog’s theme: {{blog_theme}}. Please follow these steps:
+
+1. Analyze the blog theme provided in {{blog_theme}}.
+2. Generate an image concept that embodies a cute aesthetic—consider elements like 
+friendly characters, soft pastel colors, or charming motifs.
+3. Ensure the design is optimized for blog use, focusing on clarity, appeal, and 
+digital quality.
+4. If applicable, describe the image details and layout to guide the final image output.
+
+Wrap your final answer with the <answer> tag.
+
+Промпт для генерации изображения (Cute Blog Image)
+
+    Общая цель: Создать милое и визуально привлекательное изображение для блога, 
+    соответствующее заданной теме.
+    Детали:
+        Будет предоставлена переменная {{blog_theme}}, содержащая тему блога.
+        На основе этой темы необходимо сгенерировать концепцию изображения, которая 
+        воплощает "милую" эстетику. Это включает в себя рассмотрение таких элементов, 
+        как дружелюбные персонажи, мягкие пастельные тона или очаровательные мотивы.
+        Дизайн должен быть оптимизирован для использования в блоге: быть чётким, 
+        привлекательным и высокого цифрового качества.
+        Если применимо, должно быть дано описание деталей изображения и его макета 
+        (композиции), чтобы направлять окончательный вывод изображения.
+    Ключевые элементы: Анализ входных данных (blog_theme), генерация креативной 
+    концепции изображения, соблюдение заданного эстетического стиля ("милый"), 
+    оптимизация под конкретное использование (блог), описание визуальных характеристик 
+    для вывода. Этот промпт предназначен для модели генерации изображений.
