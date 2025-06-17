@@ -1,0 +1,41 @@
+# Определение сервисов (контейнеров)
+services:
+  # Сервис для веб-сервера Nginx
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    networks:
+      - mynetwork
+
+  # Сервис для базы данных Redis
+  redis:
+    image: redis:latest
+    networks:
+      - mynetwork
+
+
+  # Сервис для базы данных MySQL
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: myuser_password
+    
+    # Подключение volume для сохранения данных MySQL
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+    networks:
+      - mynetwork
+
+# Определение именованных volume
+volumes:
+  mysql_data:
+
+# Определение пользовательских сетей
+networks:
+  mynetwork:
+    driver: bridge
