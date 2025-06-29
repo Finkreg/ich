@@ -1,0 +1,21 @@
+# 1. Создание группы
+aws ec2 create-security-group \
+  --group-name 111124-oleksii \
+  --description "Security Group for MySQL and HTTPS and SSH"
+
+# 2. Правило для 3306
+aws ec2 authorize-security-group-ingress \
+  --group-id sg-092d4ec2208cc14a6 \
+  --protocol tcp \
+  --port 3306 \
+  --cidr 0.0.0.0/0
+
+# 3. Правило для 443
+aws ec2 authorize-security-group-ingress \
+  --group-id sg-092d4ec2208cc14a6 \
+  --protocol tcp \
+  --port 443 \
+  --cidr 0.0.0.0/0
+
+# 4. Удаление группы
+aws ec2 delete-security-group --group-id sg-092d4ec2208cc14a6
