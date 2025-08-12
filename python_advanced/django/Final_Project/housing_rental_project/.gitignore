@@ -1,0 +1,15 @@
+# 🐍 Virtual environment
+.venv/
+
+# 🔐 Environment variables
+.env
+
+# 🗃️ Database SQLite
+db.sqlite3
+
+# ⚙️ Python compilation
+*.pyc
+__pycache__/
+
+# 📝 Logs
+*.log

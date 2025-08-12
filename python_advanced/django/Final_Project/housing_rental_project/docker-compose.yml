@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    command: sh -c "python wait_for_db.py && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: rental_system_db
+      MYSQL_USER: db_admin
+      MYSQL_PASSWORD: admin_password
+      MYSQL_ROOT_PASSWORD: very_secret_root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
